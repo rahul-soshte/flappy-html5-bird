@@ -5,6 +5,7 @@
     <title>Flappy Bird</title>
     <link href="ui/bird.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="ui/document.css" media="screen" rel="stylesheet" type="text/css" />
+    
     <style type="text/css">
       .money {
       color: #59bf26 !important;
@@ -17,6 +18,10 @@
       padding-right: 3px !important;
       display: inline-block !important;
        }
+      .btn {
+        background-color:red;
+        cursor:pointer;
+      }
     </style>
   </head>
   <body>
@@ -37,11 +42,10 @@
           <span style='color:yellow;'>Points Collected:</span>
           <span>10000</span><br/>
 
-          <span style='color:yellow;'>Wanna Convert To INR?</span>
-          <button><span>Click Here</span></button><br/>
+          <button style=""><span style='color:yellow;'>Convert your Points to INR</span></button><br />
+          <!-- <button><span>Click Here</span></button><br/> -->
 
-          <span style='color:yellow;'>INR Earned</span>
-          <span>0</span><br/>
+          <span>Money Earned: <span style='color:yellow;' class="money">0</span></span>
 
         </div>
         <br/>
