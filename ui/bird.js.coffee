@@ -18,17 +18,21 @@ jQuery.fn.shake = (intShakes, intDistance, intDuration) ->
 class Runner
   constructor: ->
     @FPS = 60 # frame / s
+    # console.log(@FPS)
     @FRAME_TIME = 1000 / @FPS # ms / frame
-
+    # console.log(@FRAME_TIME)
     @GROUND_SPEED = 190 / @FPS # px / frame
+    # console.log(@GROUND_SPEED
     @GRAVITY = 35 / @FPS # px / frame
+    # console.log(@GRAVITY)
     @BIRD_JUMP_SPEED = 510 / @FPS # px / frame
-
+    # console.log(@BIRD_JUMP_SPEED);
     @roles = []
 
   add: (role)->
     @roles.push role
     role.runner = @
+    # console.log(role.runner)
 
   run: ->
     start_time = new Date().getTime()
@@ -227,6 +231,7 @@ class ScoreBoard
     @$score.html('')
     @$max_score.html('')
 
+
     for num in (score + '').split('')
       $n = jQuery('<div></div>')
         .addClass('number')
@@ -323,6 +328,8 @@ class Pipes
   start: ->
     @is_stop = false    
     @generate()
+
+# Game class begins
 
 class Game
   constructor: (@stage)->
@@ -449,7 +456,6 @@ class Game
     @state = 'over'
 
     @_show('bird', 'score')
-
     @stage.stop()
     @pipes.stop()
 
@@ -468,7 +474,7 @@ class Game
             @$ok.fadeIn()
             @$share.fadeIn()
     , 500
-
+# Game Class ends #
 jQuery ->
   window.game = new Game
   window.game.begin()

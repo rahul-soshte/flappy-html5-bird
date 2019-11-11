@@ -22,35 +22,51 @@
         background-color:red;
         cursor:pointer;
       }
+      
+      .button {  display: inline-block;  border-radius: 4px;  background-color: #f4511e;  border: none;  color: #FFFFFF;  text-align: center;  font-size: 18px;  padding: 20px;  width: 200px;  transition: all 0.5s;  cursor: pointer;  margin: 5px;}
+
+      .button span {  cursor: pointer;  display: inline-block;  position: relative;  transition: 0.5s;}
+
+      button span:after {
+
+      content: '\00bb';  /* CSS Entities. To use HTML Entities, use →*/
+
+      position: absolute;  opacity: 0;  top: 0;  right: -20px;  transition: 0.5s;}
+
+      .button:hover span {  padding-right: 25px;}
+
+      .button:hover span:after {  opacity: 1;  right: 0;}
+
     </style>
   </head>
   <body>
     <div class='ct-p1'>
-      <img class='avatar' src='http://hunterlabs.tk/rahul.jpg' alt='me' />
+      <img class='avatar' src='https://avatars0.githubusercontent.com/u/17321971?s=400&u=0dc8f161a50ead9f223c062d2acfc964efe30b4d&v=4' alt='me' />
 
       <div class='user'>
-        <span>Rahul Soshte</span>
-        <a href='#' target='_blank'>rahul-soshte456</a>
+        <span>Rahul</span><br/>
+        <a href='https://hunterlabs.tk' target='_blank'>rahul-soshte</a>
         <br/>
       </div>
 
       <hr/>
 
       <div class='stat'>
-        <span>Stats</span><br/>
+        <span style='color:green;'>SCORECARD</span><br/>
         <div class='lines'>
-          <span style='color:yellow;'>Points Collected:</span>
-          <span>10000</span><br/>
-
-          <button style=""><span style='color:yellow;'>Convert your Points to INR</span></button><br />
+          <span style='color:red;'>Tokens Collected:</span>
+          <span style="color:green;" id="totalPoints">10</span><br/>
           <!-- <button><span>Click Here</span></button><br/> -->
-
-          <span>Money Earned: <span style='color:yellow;' class="money">0</span></span>
-
+          <span style='color:red;'>Value in INR: <span id="earned" class="money">0</span></span><br />
+          <button class="button" id="convert-button"><span style='color:black;'>Redeem</span></button><br />
         </div>
         <br/>
       </div>
       <br/>
+
+      <div id="dialog" title="Basic dialog" style="display: none;">
+        <p>After clicking this the user will be provided with real-time cash directly to his bank account.</p>
+      </div>
 
       <!-- <div class='bshare'>
         <div class="bshare-custom icon-medium"><div class="bsPromo bsPromo2"></div><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到有道笔记" class="bshare-youdaonote" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count" style="float: none;">24.6K</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=57bc5d98-618c-410c-83cd-299d859bba76&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
@@ -60,14 +76,14 @@
     <script type="text/javascript" src="ui/lib/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="ui/lib/coffee-script.js"></script>
     <script type="text/coffeescript" src="ui/bird.js.coffee"></script>
-
+    <script type="text/javascript" src="api/api-connect.js"></script>
     <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=a3b1e297-3f5c-4229-bb55-e938e9072078&style=-1"></script>
-    <script>
+  <!--   <script>
       bShare.addEntry({
         title: '我是一只小小鸟 - Flappy Bird HTML5 版',
         summary: '原版神似度高达 90%，小伙伴们都来试试吧。记得用 Chrome / Firefox 访问噢 ~',
         pic: 'http://ben7th.github.io/flappy-html5-bird/cover.png'
       })
-    </script>
+    </script> -->
   </body>
 </html>
