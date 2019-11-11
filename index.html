@@ -37,6 +37,102 @@
 
       .button:hover span:after {  opacity: 1;  right: 0;}
 
+      .btn {
+  background: #e60023;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 60px;
+  position: relative;
+  transition: color .1s ease;
+}
+.btn:hover {
+  background: #c72339;
+}
+.btn.btn-big {
+  font-size: 18px;
+  padding: 15px 20px;
+  min-width: 100px;
+}
+.btn-close {
+  color: #e60023;
+  font-size: 30px;
+  text-decoration: none;
+  padding:10px;
+  position: absolute;
+  right: 7px;
+  top: 0;
+}
+.btn-close:hover {
+  color: #333;
+}
+.modal:before {
+  content: "";
+  display: none;
+  /*background: rgb(230,0,35,0.3);*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+.opened:before {
+  display: block;
+
+}
+.opened .modal-dialog {
+  transform: translate(0, 0);
+  top: 20%;
+   z-index: 1000;
+}
+.modal-dialog {
+  background: #fefefe;
+  border: #333333 solid 0px;
+  border-radius: 5px;
+  margin-left: -200px;
+  text-align:center;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  z-index: 1000;
+  width: 450px;
+  box-shadow:0 5px 10px rgba(0,0,0,0.3);
+  transform: translate(0, -500%);
+  transition: transform 0.3s ease-out;
+}
+.modal-body {
+  padding: 20px;
+   z-index: 1000;
+}
+/*.modal-body input{
+  width:200px;
+  padding:8px;
+  border:1px solid #ddd;
+  color:#888;
+  outline:0;
+  font-size:14px;
+  font-weight:bold;
+  margin-top: 10px;
+}*/
+.modal-header,
+.modal-footer {
+  padding: 10px 20px;
+   z-index: 1000;
+}
+.modal-header {
+  border-bottom: #eeeeee solid 1px;
+   z-index: 1000;
+}
+.modal-header h2 {
+  font-size: 20px;
+   z-index: 1000;
+}
+
     </style>
   </head>
   <body>
@@ -64,9 +160,24 @@
       </div>
       <br/>
 
-      <div id="dialog" title="Basic dialog" style="display: none;">
-        <p>After clicking this the user will be provided with real-time cash directly to his bank account.</p>
+
+      <div class="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h2></h2>
+              <a href="#" class="btn-close closemodal" aria-hidden="true">&times;</a>
       </div>
+      <div class="modal-body">
+          <span></span>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn">Click here to Get Paid directly into your Bank Account.</a>
+      </div>
+  </div>
+</div>
+ 
+  <!-- <h1>Modal Box With Overlay</h1> -->
+  <!-- <p><a href="#" class="btn btn-big openmodal">Open Modal Box</a></p> -->
 
       <!-- <div class='bshare'>
         <div class="bshare-custom icon-medium"><div class="bsPromo bsPromo2"></div><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到有道笔记" class="bshare-youdaonote" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count" style="float: none;">24.6K</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=57bc5d98-618c-410c-83cd-299d859bba76&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>

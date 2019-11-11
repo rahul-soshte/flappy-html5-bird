@@ -1,8 +1,18 @@
 $(document).ready(function() {
     
 
-    $("#convert-button").click(function(){
-            $( "#dialog" ).show();
+    // $('.openmodal').click(function (e) {
+         
+    // });
+    $('.closemodal').click(function (e) {
+         e.preventDefault();
+         $('.modal').removeClass('opened');
+    });
+
+    $("#convert-button").click(function(e){
+            // $( "#dialog" ).show();
+        e.preventDefault();
+         $('.modal').addClass('opened');
     }); 
 
     $("body").on('DOMSubtreeModified', "#totalPoints", function() {
