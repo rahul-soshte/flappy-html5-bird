@@ -220,17 +220,21 @@ class ScoreBoard
       .appendTo @$elm
 
   set: (score)->
+    
+
     localStorage.max_score = 0 if !localStorage.max_score
+    
+    $('#totalPoints').html(score)
 
     if localStorage.max_score < score
       localStorage.max_score = score
       @$new_record.show()
+
     else
       @$new_record.hide()
 
     @$score.html('')
     @$max_score.html('')
-
 
     for num in (score + '').split('')
       $n = jQuery('<div></div>')
